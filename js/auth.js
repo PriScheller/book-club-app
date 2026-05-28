@@ -3,29 +3,34 @@
 function executarLogin(event) {
     event.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value;
+    const email = document.getElementById('email').value.trim();
+    const senha = document.getElementById('senha').value.trim();
     const msgErro = document.getElementById('mensagemErro');
 
-    // Credenciais simuladas para a versão Beta
-    const emailValido = "admin@clube.com";
-    const senhaValida = "123456";
+    // 🌟 CREDENCIAIS PADRÃO FALSAS (Simples e fáceis de digitar para o teste)
+    const emailTeste = "teste@clube.com";
+    const senhaTeste = "123";
 
-    if (email === emailValido && senha === senhaValida) {
+    // Força a limpeza de resíduos de testes anteriores
+    localStorage.removeItem('usuarioAutenticado');
+
+    // Validação direta
+    if (email === emailTeste && senha === senhaTeste) {
         msgErro.style.display = "none";
         
-        // Simula uma sessão ativa salvando um marcador no localStorage
+        // Ativa a sessão simulada no navegador
         localStorage.setItem('usuarioAutenticado', 'true');
         
-        // Redireciona para o Painel Principal
+        // Redireciona imediatamente para o painel
         window.location.href = "dashboard.html";
     } else {
-        msgErro.innerText = "E-mail ou senha incorretos! (Dica: admin@clube.com / 123456)";
+        // Alerta amigável caso erre a digitação
+        msgErro.innerHTML = `E-mail ou senha incorretos!<br>Use: <strong>${emailTeste}</strong> e senha <strong>${senhaTeste}</strong>`;
         msgErro.style.display = "block";
     }
 }
 
-// Função auxiliar simples para proteção de rotas nas outras páginas
+// Proteção de tela simples para impedir acessos diretos sem login
 function verificarSessao() {
     if (localStorage.getItem('usuarioAutenticado') !== 'true') {
         window.location.href = "index.html";
