@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Cantinho - Roleta de Sorteio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sorteio.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <span>📖</span> Nosso Cantinho
+        </div>
+        <nav>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html" class="nav-link"><span>🏠</span> Painel</a></li>
+                <li><a href="lista.html" class="nav-link"><span>📚</span> Minha Lista</a></li>
+                <li><a href="sorteio.html" class="nav-link active"><span>🎲</span> Roleta de Sorteio</a></li>
+                <li style="margin-top: 20px;"><a href="index.html" class="nav-link" style="color: #C19B9B;"><span>🚪</span> Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="main-wrapper">
+        
+        <header class="top-header">
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Pesquisar no clube...">
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn">🔔</button>
+                <button class="icon-btn">⚙️</button>
+                <div class="avatar-perfil">CL</div>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="sorteio-layout">
+                
+                <div class="sorteio-esquerda">
+                    <h2 style="color: var(--primary-color); margin-bottom: 10px;">Roleta de Escolha 🎲</h2>
+                    <p style="color: #8E8382; margin-bottom: 30px;">Prontas para girar a roleta literária? Todos os livros disponíveis da lista já estão divididos abaixo.</p>
+                    
+                    <div class="seletor-sorteio-box" style="margin-bottom: 25px;">
+                        <label style="font-weight:700; color: var(--text-color);">Sorteando a Lista: </label>
+                        <select id="seletorListaSorteio" onchange="mudarListaDaRoleta(this.value)" style="padding: 10px 15px; border-radius:10px; font-weight:700; border: 2px solid var(--text-color); background-color: var(--card-bg); color: var(--text-color); cursor: pointer;">
+                            </select>
+                    </div>
+                    
+                    <div class="canvas-container">
+                        <div class="marcador-pizza">▼</div>
+                        <div class="roleta-pizza" id="roletaPizza">
+                            <div class="centro-livro">📖</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-girar-pizza" id="btnGirar" onclick="gerenciarGiro()">Girar Roleta!</button>
+                </div>
+
+                <div class="sorteio-direita">
+                    <div class="card-resultado">
+                        <h3><h3>📖 Resultado do Sorteio</h3></h3>
+                        <div class="resultado-texto" id="resultadoTexto">Escolha uma lista e clique no botão para girar!</div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dados-compartilhados.js"></script>
+    <script src="js/sorteio.js"></script>
+</body>
+</html>

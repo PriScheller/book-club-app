@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Cantinho - Minhas Listas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lista.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-logo"><span>📖</span> Nosso Cantinho</div>
+        <nav>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html" class="nav-link"><span>🏠</span> Painel</a></li>
+                <li><a href="lista.html" class="nav-link active"><span>📚</span> Minha Lista</a></li>
+                <li><a href="sorteio.html" class="nav-link"><span>🎲</span> Roleta de Sorteio</a></li>
+                <li style="margin-top: 20px;"><a href="index.html" class="nav-link" style="color: #C19B9B;"><span>🚪</span> Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="top-header">
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="inputPesquisa" placeholder="Filtrar livros nesta lista..." oninput="filtrarLivros()">
+            </div>
+            <div class="header-actions">
+                <div class="avatar-perfil">CL</div>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <div class="lista-header-actions">
+                <div>
+                    <h2 style="color: var(--primary-color);">Listas do Clube 📚</h2>
+                    <p style="color: #8E8382;">Gerencie as categorias e indicações dos membros.</p>
+                </div>
+                
+                <div class="seletor-lista-container">
+                    <label for="seletorLista">Ver Lista: </label>
+                    <select id="seletorLista" onchange="alternarListaCategoria(this.value)">
+                        </select>
+                </div>
+            </div>
+
+            <div class="lista-grid-layout">
+                <section class="card-formulario">
+                    <h3>✨ Indicar Novo Livro</h3>
+                    <form id="formAdicionarLivro" onsubmit="adicionarLivroAoClube(event)">
+                        <div class="form-group-lista">
+                            <input type="text" id="livroTitulo" placeholder="Título exato do livro" required>
+                        </div>
+                        <div class="form-group-lista">
+                            <input type="text" id="livroAutor" placeholder="Autor do livro (Opcional)">
+                        </div>
+                        <button type="submit" class="btn-adicionar-lista">Adicionar com Capa ✨</button>
+                    </form>
+                </section>
+
+                <section class="container-cards-livros" id="gridLivros">
+                    </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dados-compartilhados.js"></script>
+    <script src="js/lista.js"></script>
+</body>
+</html>

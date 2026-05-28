@@ -1,0 +1,163 @@
+/* css/sorteio.css - Roleta Avançada com Textos */
+
+.sorteio-layout {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sorteio-esquerda {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.marcador-pizza {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    z-index: 20;
+    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));
+}
+
+/* Corpo da Roleta */
+.roleta-pizza {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    position: relative;
+    border: 12px solid var(--text-color); /* Borda escura marcante para dar destaque */
+    box-shadow: 0 12px 35px rgba(47, 37, 36, 0.15);
+    overflow: hidden;
+    background-color: var(--card-bg);
+    transition: transform 5s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+/* 🌟 Nova Classe: Cada fatia física da roleta */
+.fatia {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    right: 0;
+    transform-origin: 0% 100%; /* Rotaciona a partir do centro do círculo */
+    overflow: hidden;
+}
+
+/* 🌟 O texto do livro dentro da fatia */
+/* css/sorteio.css */
+
+/* Atualize ou substitua a classe .fatia-texto por esta: */
+.fatia-texto {
+    position: absolute;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    box-sizing: border-box;
+    padding-top: 15px; /* Espaço do topo da fatia */
+    font-weight: 700;
+    color: var(--text-color);
+    transform-origin: 50% 50%;
+    
+    /* Organiza o Texto e a Mini-Capa em formato de coluna */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px; /* Espaço entre o texto e a imagem */
+}
+
+/* Estilo do título dentro da fatia */
+.fatia-texto span {
+    font-size: 0.75rem;
+    max-width: 90px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/*A mini capa flutuante dentro do setor da pizza */
+.mini-capa-roleta {
+    width: 35px;
+    height: 50px;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+.centro-livro {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background-color: var(--bg-color);
+    border: 5px solid var(--text-color);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-girar-pizza {
+    background-color: var(--accent-color); /* Laranja vibrante */
+    color: white;
+    border: none;
+    padding: 16px 60px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(226, 135, 67, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-girar-pizza:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(226, 135, 67, 0.5);
+}
+
+.sorteio-direita {
+    flex: 1;
+    min-width: 300px;
+}
+
+.card-resultado {
+    background-color: var(--card-bg);
+    border: 2px solid var(--text-color); /* Borda marcante */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.card-resultado h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    border-bottom: 2px dashed var(--border-color);
+    padding-bottom: 15px;
+}
+
+.resultado-texto {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
